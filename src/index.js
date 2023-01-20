@@ -25,7 +25,7 @@ io.on("connection", (socket) => {
   //recibimos un evento desde el cliente
   socket.on("message", (message) => {
     // emitimos un evento a todos los clientes
-    socket.broadcast.emit("message", message);
+    socket.broadcast.emit("message", { body: message, from: socket.id });
   });
 });
 
